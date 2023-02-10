@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+  }
+.container{
+    display: flex;
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    overflow: hidden;
+    text-align: justify;
+}
+.container .left{
+    flex: 50%;
+}
+.container .left p, h1{
+    margin: 2rem;
+    width: 25rem;
+}
+.container .right{
+    flex: 50%;
+}
+.left button{
+background-color: white;
+border: 0.01rem solid;
+border-radius: 2rem;
+width: 6rem;
+padding: 0.5rem;
+cursor: pointer;
+transition: 0.5s ease;
+}
+.left button:hover{
+    background-color: #2e4450;
+    color: white;
+}
+
+.left button a{
+    text-decoration: none;
+    color:black;
+}
+
+#heroimg{
+    width: 30rem;
+    animation: float 3s ease-out infinite;
+}
+@keyframes float{
+  50%{
+    transform: translateX(1rem);
+  }
+}
+
+@media screen and (max-width:768px) {
+    .container{
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    .container .left p, h1{
+        margin: 2rem;
+        width: 18rem;
+    }
+}

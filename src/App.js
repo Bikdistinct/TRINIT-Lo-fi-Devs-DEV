@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import Navbar from './components/UI/Navbar';
+import Landing from './components/UI/Landing';
 
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <Landing />
     </div>
   );
 }
