@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cropAdvisor = require('./api/cropAdvisor');
+const cors = require("cors");
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,7 +14,6 @@ const port  = process.env.PORT || 5000
 // const connectToMongo=require("./db");
 const dotenv = require("dotenv");
 dotenv.config();
-const cors = require("cors");
 const mongoose = require("mongoose");
 // connectToMongo();
 
@@ -22,12 +22,12 @@ const mongoose = require("mongoose");
   //     res.send("hello world");
   // });
   
-  mongoose.connect(process.env.MONGOMY, { useNewUrlParser: true });
+  // mongoose.connect(process.env.MONGOMY, { useNewUrlParser: true });
   
   //available Routes
   app.use("/api/auth", require("./routes/auth"));
   app.use("/api/feed", require("./routes/feeds"));
-  app.use('/api/cropAdvisor', cropAdvisor);
+  app.use("/api/cropAdvisor", cropAdvisor);
 
 // app.listen(process.env.port,()=>{
 //     console.log("connected to server");
