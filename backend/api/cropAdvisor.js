@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { DecisionTree } = require('decision-tree');
+const DecisionTree = require('decision-tree');
 
 const app = express();
 const router = express.Router();
@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 
 // Load the data into a variable
 const data = [
-  { location: 'Mumbai', climate: 'Tropical', soil: 'Sandy', crop: 'Tomatoes' },
-  { location: 'Delhi', climate: 'Semi-Arid', soil: 'Clay', crop: 'Corn' },
+  { "location": "Mumbai", "climate": "Tropical", "soil": "Sandy", "crop": "Tomatoes" },
+  { "location": "Delhi", "climate": "Semi-Arid", "soil": "Clay", "crop": "Corn" },
   // ...
 ];
 
