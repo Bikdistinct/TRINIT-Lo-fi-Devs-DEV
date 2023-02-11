@@ -12,7 +12,7 @@ const Navbar = () => {
           <Link to="/">F a r m S t a c k</Link>
         </div>
         <div className={`navbar-menu ${isOpen ? "is-active" : ""}`}>
-          <Link to="/explore">Get Started</Link>
+          <Link to="/feed">Get Started</Link>
           <Link to="/about">About</Link>
           <Link to="/login">Login</Link>
         </div>

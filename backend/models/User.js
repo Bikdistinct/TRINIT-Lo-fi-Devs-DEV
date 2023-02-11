@@ -19,7 +19,7 @@ const UserSchema=new mongoose.Schema({
         default:'farmer'
     },
     address:{
-        type:String,
+        type:String
         // required:true
     },
     phone:{
