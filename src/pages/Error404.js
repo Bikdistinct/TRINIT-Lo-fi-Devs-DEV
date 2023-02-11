@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './404.css';
+import './Error404.css';
 
 const Error404 = () => (
   <div className="error-container">
