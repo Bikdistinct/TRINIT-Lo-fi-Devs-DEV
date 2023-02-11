@@ -4,7 +4,7 @@ import './Login.css'
 function login() {
   return (
     <div>
-      <div class="container">
+      <div class="container-lg">
         <h3>Login</h3>
         <form action="/login" method="POST">
             <p><input type="text" name="username" placeholder="Enter username" /></p>

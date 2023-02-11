@@ -5,7 +5,7 @@ import './Signup.css'
 function Signup() {
   return (
     <div>
-        <div class="container">
+        <div class="container-sg">
             <h3>Sign Up</h3>
             <form action="/register" method="POST">
                 <p><input type="text" name="username" placeholder="Enter a username" /></p>
