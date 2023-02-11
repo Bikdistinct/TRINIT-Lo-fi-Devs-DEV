@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Landing from './components/UI/Landing';
 import Error404 from './pages/Error404';
