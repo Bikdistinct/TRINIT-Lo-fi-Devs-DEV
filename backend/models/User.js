@@ -20,13 +20,15 @@ const UserSchema=new mongoose.Schema({
     },
     address:{
         type:String,
-        required:true
+        // required:true
     },
     phone:{
-        type:Number
+        type:Number,
+        default:91
     },
     roomId:{
         type:String
+
     },
 
     date:{

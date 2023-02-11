@@ -80,9 +80,9 @@ app.use(express.json());
 
 const port = process.env.PORT || 5000;
 
-// const connectToMongo=require("./db");
-// connectToMongo();
-// mongoose.connect(process.env.MONGOMY, { useNewUrlParser: true });
+const connectToMongo = require("./db");
+connectToMongo();
+mongoose.connect(process.env.MONGOMY, { useNewUrlParser: true });
 
 //available Routes
 app.use("/api/auth", require("./routes/auth"));
