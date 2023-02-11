@@ -29,6 +29,21 @@ const mongoose = require("mongoose");
   app.use("/api/feed", require("./routes/feeds"));
   app.use("/api/cropAdvisor", cropAdvisor);
 
+
+  const getLocation = require('./api/currentLoc');
+
+  getLocation().then(location => {
+    console.log(location);
+  }).catch(error => {
+    console.error(error);
+  });
+
+
+  
+
+
+  // app.use("/loc", "./geolocation");
+
 // app.listen(process.env.port,()=>{
 //     console.log("connected to server");
 // })
