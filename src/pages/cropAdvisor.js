@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Navbar from '../components/UI/Navbar';
+import './cropAdvisor.css';
 const getLocation = require('./currentLoc');
 
 const CropInputForm = () => {
@@ -44,7 +46,9 @@ setLoading(false);
 };
 
 return (
-<div>
+<>
+<Navbar />
+<div className='crop-body'>
 <form onSubmit={handleSubmit}>
 <label>
 Climate:
@@ -73,7 +77,7 @@ Soil:
 </label>
 <br />
 <br />
-<button type="submit">Predict Crop</button>
+<button type="submit" id='crop-btn'>Predict Crop</button>
 </form>
 {isLoading ? (
 <div>Loading...</div>
@@ -83,6 +87,7 @@ Soil:
 </div>
 )}
 </div>
+</>
 );
 };
 

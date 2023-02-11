@@ -6,7 +6,7 @@ import "./Feed.css";
 import { Posts } from "../dummyData";
 import {useNavigate} from "react-router-dom";
 import Navbar from "../components/UI/Navbar"
-export default function Feed(props) {
+export default function Feed() {
   let navigate=useNavigate();
   // const {showAlert}=props;
     const context=useContext(feedContext);
