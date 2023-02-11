@@ -19,11 +19,16 @@ const UserSchema=new mongoose.Schema({
         default:'farmer'
     },
     address:{
-        type:String,
-        required:true
+        type:String
+        // required:true
     },
     phone:{
-        type:Number
+        type:Number,
+        default:91
+    },
+    roomId:{
+        type:String
+
     },
 
     date:{
