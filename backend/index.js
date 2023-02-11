@@ -92,6 +92,24 @@ app.use("/api/cropAdvisor", cropAdvisor);
 //chatsystem
 const server = http.createServer(app);
 
+  const getLocation = require('./api/currentLoc');
+
+  getLocation().then(location => {
+    console.log(location);
+  }).catch(error => {
+    console.error(error);
+  });
+
+
+  
+
+
+  // app.use("/loc", "./geolocation");
+
+// app.listen(process.env.port,()=>{
+//     console.log("connected to server");
+// })
+
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3000",
