@@ -1,11 +1,12 @@
-const express = require('express')
-const app = express()
-const port = 3000 || process.env.PORT
+const express = require('express');
+const bodyParser = require('body-parser');
+const cropAdvisor = require('./api/cropAdvisor');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+const app = express();
+app.use(bodyParser.json());
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.use('/api/cropAdvisor', cropAdvisor);
+
+app.listen(3000, () => {
+  console.log('API server listening on port 3000');
+});
