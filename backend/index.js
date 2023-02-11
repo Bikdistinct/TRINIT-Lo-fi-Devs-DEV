@@ -92,19 +92,17 @@ app.use("/api/cropAdvisor", cropAdvisor);
 //chatsystem
 const server = http.createServer(app);
 
-  const getLocation = require('./api/currentLoc');
+const getLocation = require("./api/currentLoc");
 
-  getLocation().then(location => {
+getLocation()
+  .then((location) => {
     console.log(location);
-  }).catch(error => {
+  })
+  .catch((error) => {
     console.error(error);
   });
 
-
-  
-
-
-  // app.use("/loc", "./geolocation");
+// app.use("/loc", "./geolocation");
 
 // app.listen(process.env.port,()=>{
 //     console.log("connected to server");
