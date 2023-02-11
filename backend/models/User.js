@@ -25,6 +25,9 @@ const UserSchema=new mongoose.Schema({
     phone:{
         type:Number
     },
+    roomId:{
+        type:String
+    },
 
     date:{
         type:Date,
