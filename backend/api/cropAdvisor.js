@@ -37,11 +37,11 @@ var features = ["location", "climate", "soil"]
 var dt = new DecisionTree(class_name, features);
 dt.train(training_data);
 
-getLocation().then(location => {
-  console.log(location);
-}).catch(error => {
-  console.error(error);
-});
+// getLocation().then(location => {
+//   console.log(location);
+// }).catch(error => {
+//   console.error(error);
+// });
 
 
 router.post('/', async(req, res) => {

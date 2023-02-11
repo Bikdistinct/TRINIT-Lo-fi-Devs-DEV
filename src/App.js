@@ -5,6 +5,7 @@ import Error404 from "./pages/Error404";
 import Feed from "./pages/Feed";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import CropInputForm from './pages/cropAdvisor';
 import Chat from "./components/UI/chatSystem/chatroom";
 import UserProfile from "./pages/UserProfile";
 import { Alert } from "./components/Alert";
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/user" element={<UserProfile />} />
           <Route path="*" element={<Error404 />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/cropadvisor" element={<CropInputForm/>}/>
         </Routes>
       </Router>
     </div>
