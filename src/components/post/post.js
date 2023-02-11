@@ -1,3 +1,4 @@
+import React from "react";
 import "./post.css";
 import { MoreVert } from "@mui/icons-material";
 import { Users } from "../../dummyData";
