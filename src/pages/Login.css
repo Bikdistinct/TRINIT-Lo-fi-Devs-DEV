@@ -16,17 +16,18 @@ h3{
     font-weight: 600;
 }
 button{
-    background-color: white;
+    background-color: #333                                                      ;
+    border: 0.01rem solid;
     border-radius: 2rem;
     width: 6rem;
-    border: 0.01rem solid;
     padding: 0.5rem;
     cursor: pointer;
     transition: 0.5s ease;
 }
 button:hover{
-    background-color: #2e4450;
-    color: white;
+    background-color: #333;
+    color: rgb(72, 184, 72);
+    border: 0.01rem solid rgb(72, 184, 72);
 }
 input{
     border-radius: 0.3rem;

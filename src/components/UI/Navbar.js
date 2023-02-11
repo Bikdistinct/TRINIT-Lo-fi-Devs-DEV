@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <a href="#">FarmStack</a>
+          <Link to="/">F a r m S t a c k</Link>
         </div>
         <div className={`navbar-menu ${isOpen ? "is-active" : ""}`}>
           <Link to="/explore">Get Started</Link>
