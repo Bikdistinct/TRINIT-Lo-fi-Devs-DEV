@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const DecisionTree = require('decision-tree');
+const getLocation = require('./currentLoc');
+
 
 const app = express();
 const router = express.Router();
@@ -17,7 +19,8 @@ const training_data = [
   { "location": "Kolkata", "climate": "Subtropical", "soil": "Alluvial", "crop": "Wheat" },
   { "location": "Pune", "climate": "Tropical", "soil": "Red", "crop": "Maize" },
   { "location": "Jaipur", "climate": "Arid", "soil": "Sandy", "crop": "Barley" },
-  { "location": "Lucknow", "climate": "Subtropical", "soil": "Silty", "crop": "Potatoes" }
+  { "location": "Lucknow", "climate": "Subtropical", "soil": "Silty", "crop": "Potatoes" },
+  { "location": "Guwahati", "climate":"Moderate", "soil":"Silty", "crop":"Rice"}
 ];
 
 const test_data = [
@@ -34,17 +37,20 @@ var features = ["location", "climate", "soil"]
 var dt = new DecisionTree(class_name, features);
 dt.train(training_data);
 
-// var predicted_class = dt.predict({
-//   "location": 'Mumbai',
-//   "climate": 'Tropical', 
-//   "soil": 'Sandy'
+// getLocation().then(location => {
+//   console.log(location);
+// }).catch(error => {
+//   console.error(error);
 // });
 
-router.post('/', (req, res) => {
-  const { location, climate, soil } = req.body;
+
+router.post('/', async(req, res) => {
+
+  const location = await getLocation()
+  const {climate, soil } = req.body;
   
   // Use the decision tree to make predictions
-  const crops = dt.predict({ location, climate, soil });
+  const crops = dt.predict({ location: location.city, climate, soil });
 
   // Return the result as a response
   res.json({
