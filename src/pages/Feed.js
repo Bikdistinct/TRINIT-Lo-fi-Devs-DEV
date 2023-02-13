@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 // import feedContext from "../context/feedContext";
 import Post from "../components/post/post";
 import Share from "../components/post/Share";
@@ -30,7 +30,7 @@ function Feed() {
   const [feeds, setFeeds] = useState(feedsInitial);
   const getFeeds = async () => {
     //API call
-    const response = await fetch(`${host}/api/feed/fetchallfeeds`, {
+    const response = await fetch(`${host}/api/feed/fetchallfeed`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
