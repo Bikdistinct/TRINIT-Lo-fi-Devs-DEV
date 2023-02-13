@@ -17,9 +17,9 @@ router.get("/fetchallfeeds", fetchUser, async (req, res) => {
 });
 
 //new routes
-router.get("/fetchallfeed/:tag", async (req, res) => {
+router.get("/fetchallfeed", async (req, res) => {
   try {
-    const feeds = await Feed.find({ tag: req.params.tag });
+    const feeds = await Feed.find({});
     res.json(feeds);
   } catch (error) {
     console.log.error(error.message);
@@ -32,14 +32,15 @@ router.post(
   "/addfeed",
   fetchUser,
   [
-    body("title", "Enter a valid title").isLength({ min: 3 }),
+    // body("title", "Enter a valid title").isLength({ min: 3 }),
     body("description", "Description must be atleast 5 character").isLength({
       min: 3,
     }),
   ],
   async (req, res) => {
     try {
-      const { title, description, tag } = req.body;
+      // const { title, description, tag } = req.body;
+      const {description}=req.body;
       //If there are errors,return Bad request and the errors
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -47,9 +48,9 @@ router.post(
       }
 
       const feed = new Feed({
-        title,
+        // title,
         description,
-        tag,
+        // tag,
         user: req.user.id,
       });
       const savedFeed = await feed.save();

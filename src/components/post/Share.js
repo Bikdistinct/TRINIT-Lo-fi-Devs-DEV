@@ -1,10 +1,32 @@
-import React,{useContext, useState} from "react";
+import React,{useState} from "react";
 import "./Share.css";
 import { PermMedia, Label, Room, EmojiEmotions } from "@mui/icons-material";
-import feedContext from "../../context/feedContext";
+// import FeedContext from "../../context/FeedContext";
 export default function Share(props) {
-  const context = useContext(feedContext);
-  const { addFeed } = context;
+  // const context = useContext(FeedContext);
+  // const { addFeed } = context;
+  const host = "http://localhost:5000";
+  const feedsInitial = [];
+  const [feeds, setFeeds] = useState(feedsInitial);
+  const addFeed = async (description) => {
+    //todo api call
+    const response = await fetch(`${host}/api/feed/addfeed`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+      body: JSON.stringify({ description }),
+    });
+
+    const json = await response.json();
+    console.log(json);
+
+    console.log("add func");
+    const feed = json;
+
+    setFeeds(feeds.concat(feed));
+  };
 
   const [feed, setFeed] = useState({ description: "" });
   const handleClick = (e) => {

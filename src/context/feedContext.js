@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const feedContext=createContext();
+const FeedContext = createContext();
 
-export default feedContext;
+export default FeedContext;

@@ -1,48 +1,53 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 // import feedContext from "../context/feedContext";
 import Post from "../components/post/post";
 import Share from "../components/post/Share";
 import "./Feed.css";
-import { Posts } from "../dummyData";
+// import { Posts } from "../dummyData";
 import Navbar from "../components/UI/Navbar";
 // import { useNavigate } from "react-router-dom";
+// import feedContext from "../context/feedContext";
 // import WithAuth from "./WithAuth";
 function Feed() {
   // let navigate = useNavigate();
-  // // const {showAlert}=props;
-  // // const context = useContext(feedContext);
+  // const {showAlert}=props;
+  // const context = useContext(feedContext);
   // // const { feeds, getFeeds } = context;
+  // const { feeds, getFeeds } = context;
   // useEffect(() => {
   //   if (localStorage.getItem("token")) {
-  //     console.log("kaam korise");
-  //   // getFeeds();
+  //     // navigate("/login");
+  //     // console.log("kaam korise");
+  //     getFeeds();
   //   } else {
   //     navigate("/login");
   //   }
   //   //eslint-disable-next-line
   // }, []);
 
-  // const ref=useRef(null);
-  // const refClose=useRef(null);
-  // const [note, setNote] = useState({ etitle: "", edescription: "", etag: "default" });
-  // const handleClick = (e) => {
-  //     console.log("updating the note",note)
-  //     // e.preventDefault();
-  //     editNote(note.id,note.etitle,note.edescription,note.etag);
+  const host = "http://localhost:5000";
+  const feedsInitial = [];
+  const [feeds, setFeeds] = useState(feedsInitial);
+  const getFeeds = async () => {
+    //API call
+    const response = await fetch(`${host}/api/feed/fetchallfeeds`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        //   "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJkNjZlZjA2NTYyN2Y2NmFlOTM3MGIzIn0sImlhdCI6MTY1ODIyMDM2OX0.fyV7JLu980KmYlYwQi3YiveaAif1zQxhRxH0DEwJDuA"
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+    const json = await response.json();
+    console.log(json);
+    setFeeds(json);
+  };
 
-  //     refClose.current.click();
+  console.log("hello");
 
-  // }
-
-  // const onChange = (e) => {
-  //     setNote({ ...note, [e.target.name]: e.target.value })
-  //     console.log("change");
-  // }
-  // const updateNote=(currentNote)=>{
-  //     ref.current.click();
-  //     setNote({id:currentNote._id,etitle:currentNote.title,edescription:currentNote.description,etag:currentNote.tag})
-  //     props.showAlert("Updated Successfully","success");
-  // }
+  useEffect(() => {
+    getFeeds();
+  }, []);
 
   return (
     <>
@@ -50,11 +55,17 @@ function Feed() {
       <div className="feed">
         <div className="feedWrapper">
           <Share />
-          {Posts.map((p) => (
+          {feeds.map((p) => (
             <Post key={p.id} post={p} />
           ))}
         </div>
       </div>
+
+      {/* <div>
+        {feeds.map((feed) => (
+          <p>{feed.description}</p>
+        ))}
+      </div> */}
     </>
   );
 }
